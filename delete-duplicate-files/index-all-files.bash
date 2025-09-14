@@ -33,4 +33,5 @@ find "$process_dir" -type f -print0 | while IFS= read -r -d '' filepath; do
     fi
 done
 
+echo
 echo "all files and their data were written to $output_file"
