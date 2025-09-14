@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# process duplicates.txt to create delete-duplicates.bash
+# process $input_file to create $output_file
+input_file="all-files.txt"
 output_file="delete-duplicates.bash"
 echo "#!/bin/bash" > "$output_file"
 echo "" >> "$output_file"
@@ -44,7 +45,7 @@ while IFS= read -r line; do
 # generate duplicates list
 done < <(
     # tail -n +2 = skip the header
-    tail -n +2 all-files.txt | \
+    tail -n +2 "$input_file" | \
     # convert to tab-separated values
     # $1 = size
     # $2 = sha256, $3 = path (with spaces)
